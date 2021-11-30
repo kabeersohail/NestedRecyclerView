@@ -5,9 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.nestedrecyclerview.DataModel
-import com.example.nestedrecyclerview.ItemAdapter
-import com.example.nestedrecyclerview.R
 import com.example.nestedrecyclerview.databinding.ActivityMainBinding
 import java.util.ArrayList
 
@@ -15,7 +12,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     private lateinit var recyclerView: RecyclerView
     private var mList: MutableList<DataModel>? = null
-    private var adapter: ItemAdapter? = null
+    private var adapter: ParentAdapter? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
@@ -95,7 +92,7 @@ class MainActivity : AppCompatActivity() {
         mList!!.add(DataModel(nestedList5, "Pet Care"))
         mList!!.add(DataModel(nestedList6, "Baby Care"))
         mList!!.add(DataModel(nestedList7, "Personal Care"))
-        adapter = ItemAdapter(mList as ArrayList<DataModel>)
+        adapter = ParentAdapter(mList as ArrayList<DataModel>)
         recyclerView.setAdapter(adapter)
     }
 }

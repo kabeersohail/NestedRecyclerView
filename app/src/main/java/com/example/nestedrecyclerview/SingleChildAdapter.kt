@@ -4,14 +4,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.nestedrecyclerview.databinding.NestedItemBinding
+import com.example.nestedrecyclerview.databinding.SingleChildItemBinding
 
-class NestedAdapter(private val mList: List<String>) :
-    RecyclerView.Adapter<NestedAdapter.NestedViewHolder>() {
+class SingleChildAdapter(private val mList: List<String>) :
+    RecyclerView.Adapter<SingleChildAdapter.NestedViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NestedViewHolder {
 
         val layoutInflater = LayoutInflater.from(parent.context)
-        val binding = NestedItemBinding.inflate(layoutInflater, parent,false)
+        val binding = SingleChildItemBinding.inflate(layoutInflater, parent,false)
         return NestedViewHolder(binding)
     }
 
@@ -23,7 +23,7 @@ class NestedAdapter(private val mList: List<String>) :
         return mList.size
     }
 
-    inner class NestedViewHolder(binding: NestedItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class NestedViewHolder(binding: SingleChildItemBinding) : RecyclerView.ViewHolder(binding.root) {
         val mTv: TextView = binding.nestedItemTv
     }
 }
